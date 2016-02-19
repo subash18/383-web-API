@@ -5,7 +5,7 @@ $.ajax({
     url: "/api/ApiKey",
     dataTpe: "json",
     headers: {
-        "Authorization": "Basic " + btoa(userame + ":" + password)
+        "Authorization": "Basic " + btoa(username + ":" + password)
     },
     statusCode: {
         403: function() {
