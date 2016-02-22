@@ -1,0 +1,24 @@
+﻿
+
+@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    {
+        @Html.AntiForgeryToken()
+
+
+
+        <li class="pull-right">@Html.ActionLink("Sign Out", "Logout", "User") </li>
+        <li class="pull-right">@Html.ActionLink(HttpContext.Current.User.Identity.GetUserName(), "Home")</li>
+
+    }
+}
+else
+{
+
+    <li class="pull-right">@Html.ActionLink("Sign Up", "Create", "User")</li>
+    <li class="pull-right">@Html.ActionLink("Sign In", "SignIn", "User")</li>
+
+}
+
+
