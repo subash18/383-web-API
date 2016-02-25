@@ -24,19 +24,8 @@ namespace WebAPIPhase_2.Migrations
         }
         protected override void Seed(WebAPIPhase_2.Models.WebAPIPhase_2Context context)
         {
-            //  This method will be called after migrating to the latest version.
-
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
-
+            
+            context.Products.AddOrUpdate(x => x.ProductId, new Product {Name = "Tongs", InventoryCount = 5, Price = 5, ProductId = 1, CreatedDate = DateTime.Today, LastModifiedDate = DateTime.Today});
 
            
         }

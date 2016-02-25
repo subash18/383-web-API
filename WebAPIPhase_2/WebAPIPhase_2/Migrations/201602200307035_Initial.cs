@@ -12,7 +12,7 @@ namespace WebAPIPhase_2.Migrations
                 c => new
                     {
                         ProductId = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
+                        Name = c.String(nullable: false),
                         CreatedDate = c.DateTime(nullable: false),
                         LastModifiedDate = c.DateTime(nullable: false),
                         Price = c.Decimal(nullable: false, precision: 18, scale: 2),
