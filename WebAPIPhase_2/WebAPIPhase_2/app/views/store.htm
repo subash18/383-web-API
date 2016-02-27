@@ -1,0 +1,47 @@
+﻿<p>
+    Search: <input ng-model="search">
+</p>
+
+<table class="table table-bordered">
+    <tr class="well">
+        <td class="tdRight" colspan="1" >
+            <a href="default.htm#/cart" title="go to shopping cart" ng-disabled="cart.getTotalCount() < 1">
+                <i class="icon-shopping-cart" />
+                <b>{{cart.getTotalCount()}}</b> items, <b>{{cart.getTotalPrice() | currency}}</b>
+            </a>
+        </td>
+        <td>
+            <b>Quantity</b>
+        </td>
+        <td>
+            <b>Price</b>
+        </td>
+        <td>
+            <b>Purchase</b>
+        </td>
+    </tr>
+    <tr ng-repeat="product in store.products | orderBy:'name' | filter:search" >
+        <td>
+            <a href="#/products/{{product.sku}}"><b>{{product.name}}</b></a><br />
+        </td>
+        <td>
+            Qty: {{product.quantity - cart.getTotalCount(product.sku)}}
+        </td>
+        <td class="tdRight">
+            {{product.price | currency}}
+        </td>
+        <td class="tdCenter">
+            <a href="" ng-click="cart.addItem(product.sku, product.name, product.price, 1)" >
+                Add to Cart
+            </a>
+        </td>
+    </tr>
+    <tr class="well">
+        <td class="tdRight" colspan="4">
+            <a href="default.htm#/cart" title="go to shopping cart" ng-disabled="cart.getTotalCount() < 1">
+                <i class="icon-shopping-cart" />
+                <b>{{cart.getTotalCount()}}</b> items, <b>{{cart.getTotalPrice() | currency}}</b>
+            </a>
+        </td>
+    </tr>
+</table>
