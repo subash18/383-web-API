@@ -30,7 +30,7 @@ namespace WebAPIPhase_2.Models
 
         public string ApiKey { get; set; }
 
-       public Role Role { get; set; }
+        public Role Role { get; set; }
 
     }
 }

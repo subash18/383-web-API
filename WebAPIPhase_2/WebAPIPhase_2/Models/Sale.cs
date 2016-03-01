@@ -21,6 +21,7 @@ namespace WebAPIPhase_2.Models
         [EmailAddress]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
+
         public IEnumerable<Product> Products { get; set; }
     }
 }

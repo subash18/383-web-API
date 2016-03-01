@@ -10,7 +10,7 @@ namespace WebAPIPhase_2.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         private static string GetApiKey()

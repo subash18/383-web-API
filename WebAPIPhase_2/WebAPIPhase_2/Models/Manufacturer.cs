@@ -13,6 +13,8 @@ namespace WebAPIPhase_2.Models
         [Key]
         public int ManufacturerId { get; set; }
 
+        public string ManufacturerName { get; set; }
+
         public virtual IEnumerable<Product> Products { get; set; }
     }
 }

@@ -4,11 +4,17 @@
 
 <table class="table table-bordered">
     <tr class="well">
-        <td class="tdRight" colspan="1" >
+        <td class="tdRight" colspan="4" >
             <a href="default.htm#/cart" title="go to shopping cart" ng-disabled="cart.getTotalCount() < 1">
                 <i class="icon-shopping-cart" />
-                <b>{{cart.getTotalCount()}}</b> items, <b>{{cart.getTotalPrice() | currency}}</b>
+                <b>{{cart.getTotalCount()}}</b> items.  Total: <b>{{cart.getTotalPrice() | currency}}</b>
             </a>
+            <a style="float: right" href="default.htm#/cart" title="shopping cart">Check Out</a>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <b>Name</b>
         </td>
         <td>
             <b>Quantity</b>
@@ -36,12 +42,12 @@
             </a>
         </td>
     </tr>
-    <tr class="well">
+    <!--<tr class="well">
         <td class="tdRight" colspan="4">
             <a href="default.htm#/cart" title="go to shopping cart" ng-disabled="cart.getTotalCount() < 1">
                 <i class="icon-shopping-cart" />
-                <b>{{cart.getTotalCount()}}</b> items, <b>{{cart.getTotalPrice() | currency}}</b>
+                <b>{{cart.getTotalCount()}}</b> items.  Total: <b>{{cart.getTotalPrice() | currency}}</b>
             </a>
         </td>
-    </tr>
+    </tr>-->
 </table>
