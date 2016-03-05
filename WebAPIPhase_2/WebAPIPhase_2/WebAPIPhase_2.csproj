@@ -261,6 +261,10 @@
     <Compile Include="Migrations\201602220241459_random.Designer.cs">
       <DependentUpon>201602220241459_random.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201603051305134_AllUpdate.cs" />
+    <Compile Include="Migrations\201603051305134_AllUpdate.Designer.cs">
+      <DependentUpon>201603051305134_AllUpdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApiKey.cs" />
     <Compile Include="Models\Category.cs" />
@@ -270,6 +274,7 @@
     <Compile Include="Models\DTOs\UserDTO.cs" />
     <Compile Include="Models\Manufacturer.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\ProductPurchased.cs" />
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\Sale.cs" />
     <Compile Include="Models\User.cs" />
@@ -359,6 +364,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201602220241459_random.resx">
       <DependentUpon>201602220241459_random.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603051305134_AllUpdate.resx">
+      <DependentUpon>201603051305134_AllUpdate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
