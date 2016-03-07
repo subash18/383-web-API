@@ -60,7 +60,7 @@
             <div>
                 <b>Please enter your email address to continue with purchase:</b>
                 <label name="label">
-                    <input class="span3 text-center" type="email" name="input" ng-model="emailInfo.text">
+                    <input class="span3 text-center" type="email" name="input" ng-model="emailInfo.text" ng-pattern="emailPattern"> 
                 </label>
             </div>
             <div>
@@ -74,7 +74,7 @@
         </div>
         <br />
         <br />
-        <p class="text-info">
+        <p class="text-info" ng-hide="buy">
             <button class="btn btn-block"
                     onclick="window.location.href='default.htm'">
                 <i class="icon-chevron-left" /> back to store

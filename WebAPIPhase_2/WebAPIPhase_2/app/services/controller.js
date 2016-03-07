@@ -7,6 +7,7 @@ function storeController($scope, $routeParams, DataService, $http) {
     $scope.emailInfo = {
         text: ''
     }
+    $scope.emailPattern = /^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/;
     $scope.buy = true;
 
     if ($routeParams.productId != null) {
