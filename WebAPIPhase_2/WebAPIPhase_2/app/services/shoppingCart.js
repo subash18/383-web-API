@@ -3,6 +3,7 @@
     this.clearCart = false;
     this.checkoutParameters = {};
     this.items = [];
+    var jsonFile = this.createJSON;
 
     this.loadItems();
 
@@ -23,8 +24,8 @@ shoppingCart.prototype.loadItems = function () {
             var items = JSON.parse(items);
             for (var i = 0; i < items.length; i++) {
                 var item = items[i];
-                if (item.sku != null && item.name != null && item.price != null && item.quantity != null) {
-                    item = new cartItem(item.sku, item.name, item.price, item.quantity);
+                if (item.productId != null && item.name != null && item.price != null && item.inventoryCount != null) {
+                    item = new cartItem(item.productId, item.name, item.price, item.inventoryCount);
                     this.items.push(item);
                 }
             }
@@ -42,8 +43,9 @@ shoppingCart.prototype.saveItems = function () {
     }
 }
 
+
 // adds an item to the cart
-shoppingCart.prototype.addItem = function (sku, name, price, quantity) {
+shoppingCart.prototype.addItem = function (productId, name, price, quantity) {
     quantity = this.toNumber(quantity);
     if (quantity != 0) {
 
@@ -51,10 +53,10 @@ shoppingCart.prototype.addItem = function (sku, name, price, quantity) {
         var found = false;
         for (var i = 0; i < this.items.length && !found; i++) {
             var item = this.items[i];
-            if (item.sku == sku) {
+            if (item.productId == productId) {
                 found = true;
-                item.quantity = this.toNumber(item.quantity + quantity);
-                if (item.quantity <= 0) {
+                item.inventoryCount = this.toNumber(item.inventoryCount + quantity);
+                if (item.inventoryCount <= 0) {
                     this.items.splice(i, 1);
                 }
             }
@@ -62,7 +64,7 @@ shoppingCart.prototype.addItem = function (sku, name, price, quantity) {
 
         // new item, add now
         if (!found) {
-            var item = new cartItem(sku, name, price, quantity);
+            var item = new cartItem(productId, name, price, quantity);
             this.items.push(item);
         }
 
@@ -72,24 +74,24 @@ shoppingCart.prototype.addItem = function (sku, name, price, quantity) {
 }
 
 // get the total price for all items currently in the cart
-shoppingCart.prototype.getTotalPrice = function (sku) {
+shoppingCart.prototype.getTotalPrice = function (productId) {
     var total = 0;
     for (var i = 0; i < this.items.length; i++) {
         var item = this.items[i];
-        if (sku == null || item.sku == sku) {
-            total += this.toNumber(item.quantity * item.price);
+        if (productId == null || item.productId == productId) {
+            total += this.toNumber(item.inventoryCount * item.price);
         }
     }
     return total;
 }
 
 // get the total price for all items currently in the cart
-shoppingCart.prototype.getTotalCount = function (sku) {
+shoppingCart.prototype.getTotalCount = function (productId) {
     var count = 0;
     for (var i = 0; i < this.items.length; i++) {
         var item = this.items[i];
-        if (sku == null || item.sku == sku) {
-            count += this.toNumber(item.quantity);
+        if (productId == null || item.productId == productId) {
+            count += this.toNumber(item.inventoryCount);
         }
     }
     return count;
@@ -109,7 +111,7 @@ shoppingCart.prototype.addCheckoutParameters = function (serviceName, options) {
 }
 
 // check out
-shoppingCart.prototype.checkout = function (serviceName, clearCart) {
+shoppingCart.prototype.checkout = function (serviceName, clearCart, quantity) {
 
     // select serviceName if we have to
     if (serviceName == null) {
@@ -119,14 +121,15 @@ shoppingCart.prototype.checkout = function (serviceName, clearCart) {
 
     // go to work
     var parms = this.checkoutParameters[serviceName];
-    
     this.checkoutPurchase(parms, clearCart);
 }
 
 shoppingCart.prototype.checkoutPurchase = function (parms, clearCart) {
     
+    //$http.put("http://localhost:58198/api/Products/", this.items)
     this.clearItems();
-    this.saveItems();
+    //$scope.store.products = data.data;
+    
 }
 shoppingCart.prototype.toNumber = function (value) {
     value = value * 1;
@@ -144,10 +147,10 @@ function checkoutParameters(serviceName, options) {
 //----------------------------------------------------------------
 // items in the cart
 //
-function cartItem(sku, name, price, quantity) {
-    this.sku = sku;
+function cartItem(productId, name, price, quantity) {
+    this.productId = productId;
     this.name = name;
     this.price = price * 1;
-    this.quantity = quantity * 1;
+    this.inventoryCount = quantity * 1;
 }
 

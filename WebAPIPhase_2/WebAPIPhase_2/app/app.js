@@ -1,6 +1,6 @@
 ﻿'use strict';
 
-var eventsApp = angular.module('eventsApp', ['ngRoute']);
+var eventsApp = angular.module('eventsApp', ['ngRoute', 'angular-loading-bar']);
 eventsApp.config(function($routeProvider) {
     $routeProvider
 
@@ -11,7 +11,7 @@ eventsApp.config(function($routeProvider) {
         })
 
         // route for the about page
-        .when('/products/:productSku', {
+        .when('/products/:productId', {
             templateUrl : 'app/views/product.htm',
             controller  : 'storeController'
         })
@@ -25,7 +25,7 @@ eventsApp.config(function($routeProvider) {
 eventsApp.factory("DataService", function () {
 
     // create store
-    var myStore = new store();
+    var myStore = new store;
 
     // create shopping cart
     var myCart = new shoppingCart("eventsApp");

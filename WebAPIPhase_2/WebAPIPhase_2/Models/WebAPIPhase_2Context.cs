@@ -23,10 +23,12 @@ namespace WebAPIPhase_2.Models
 
         public System.Data.Entity.DbSet<WebAPIPhase_2.Models.User> Users { get; set; }
 
-        public System.Data.Entity.DbSet<WebAPIPhase_2.Models.Manufacturer> Manufacturer { get; set; }
-
         public System.Data.Entity.DbSet<WebAPIPhase_2.Models.Category> Category { get; set; }
 
-        public System.Data.Entity.DbSet<WebAPIPhase_2.Models.Sale> Sale { get; set; }
+        public System.Data.Entity.DbSet<WebAPIPhase_2.Models.Manufacturer> Manufacturer { get; set; }
+
+        public System.Data.Entity.DbSet<WebAPIPhase_2.Models.Sale> Sales { get; set; }
+
+        public System.Data.Entity.DbSet<WebAPIPhase_2.Models.ProductPurchased> ProductPurchased { get; set; }
     }
 }

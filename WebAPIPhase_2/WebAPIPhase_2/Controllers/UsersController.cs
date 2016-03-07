@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 using WebAPIPhase_2.Models;
 
@@ -68,10 +69,11 @@ namespace WebAPIPhase_2.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "UserId,Email,Password,ApiKey,Role")] User user)
+        public ActionResult Create([Bind(Include = "UserId,Email,Password,Role")] User user)
         {
             if (ModelState.IsValid)
             {
+                user.Password = Crypto.HashPassword(user.Password);
                 db.Users.Add(user);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -100,7 +102,7 @@ namespace WebAPIPhase_2.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "UserId,Email,Password,ApiKey,Role")] User user)
+        public ActionResult Edit([Bind(Include = "UserId,Email,Password,Role")] User user)
         {
             if (ModelState.IsValid)
             {

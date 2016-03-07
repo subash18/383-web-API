@@ -45,5 +45,20 @@
 </div>
 
 @section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
+    $('form').submit(function(){
+
+        $.ajax({
+            url: 'api/APIKey',
+            type: "GET",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            data:{
+                email: $('form').serializeArray()[0].value,
+                password: $('form').serializeArray()[1].value
+            },
+            success: function(result){
+                window.location('~/Home/Index')
+            }
+        })
+    });
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -68,54 +70,105 @@ namespace WebAPIPhase_2.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, productfactoried);
           
         }
-
-        // PUT: api/Products/5
-        [ResponseType(typeof(void))]
-        public HttpResponseMessage PutProduct(int id, Product product)
+        [HttpPost]
+        [AllowAnonymous]
+        [System.Web.Http.ActionName("UpdateProducts")]
+        public HttpResponseMessage UpdateProducts([FromUri]string email, List<Product> products )
         {
-            if (!ModelState.IsValid)
-            {
-                return Request.CreateResponse(HttpStatusCode.BadRequest,ModelState);
-            }
-
-            if (id != product.ProductId)
+            ProductPurchased purchased = new ProductPurchased();
+            Product product;
+            decimal count = 0;
+            if (products == null)
             {
                 return Request.CreateResponse(HttpStatusCode.BadRequest);
             }
+            Sale sale = new Sale();
+            sale.SaleDate = DateTime.Today;
+            sale.Email = email;
+            db.Sales.Add(sale);
+            foreach (var items in products)
+            {
+                sale.TotalAmount += items.InventoryCount * items.Price;
+            }
+            foreach (var item in products)
+            {
+                product = db.Products.Find(item.ProductId);
+                product.InventoryCount = product.InventoryCount - item.InventoryCount;
 
+                purchased.ProductId = item.ProductId;
+                purchased.Quantity = item.InventoryCount;
+                purchased.SaleId = sale.SaleId;
+                db.ProductPurchased.Add(purchased);
 
-            TheRepository.putProduct(id, product);
-
-            //db.Entry(product).State = EntityState.Modified;
-
-            //try
-            //{
-            //    db.SaveChanges();
-            //}
-            //catch (DbUpdateConcurrencyException)
-            //{
-            //    if (!ProductExists(id))
-            //    {
-            //        return NotFound();
-            //    }
-            //    else
-            //    {
-            //        throw;
-            //    }
-            //}
-
-            //return StatusCode(HttpStatusCode.NoContent);
-
-            ProductDTO productfactoried = TheDTOFactory.Create(product);
-            return Request.CreateResponse(HttpStatusCode.OK, productfactoried);
+                //db.Entry(product).State = EntityState.Modified;
+                //db.Entry(purchased).State = EntityState.Modified;
+                //db.Entry(sale).State = EntityState.Modified;
+                try
+                {
+                    db.SaveChanges();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!ProductExists(item.ProductId))
+                    {
+                        return Request.CreateResponse(HttpStatusCode.NoContent);
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+            }
+            return Request.CreateResponse(HttpStatusCode.OK);
         }
 
+        //// PUT: api/Products/5
+        //[ResponseType(typeof(void))]
+        //public HttpResponseMessage PutProduct(int id, Product product)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return Request.CreateResponse(HttpStatusCode.BadRequest,ModelState);
+        //    }
+
+        //    if (id != product.ProductId)
+        //    {
+        //        return Request.CreateResponse(HttpStatusCode.BadRequest);
+        //    }
 
 
-        [HttpPost]
+        //    TheRepository.putProduct(id, product);
+
+        //    //db.Entry(product).State = EntityState.Modified;
+
+        //    //try
+        //    //{
+        //    //    db.SaveChanges();
+        //    //}
+        //    //catch (DbUpdateConcurrencyException)
+        //    //{
+        //    //    if (!ProductExists(id))
+        //    //    {
+        //    //        return NotFound();
+        //    //    }
+        //    //    else
+        //    //    {
+        //    //        throw;
+        //    //    }
+        //    //}
+
+        //    //return StatusCode(HttpStatusCode.NoContent);
+
+        //    ProductDTO productfactoried = TheDTOFactory.Create(product);
+        //    return Request.CreateResponse(HttpStatusCode.OK, productfactoried);
+        //}
+
+
+
+        [HttpPut]
       [AllowAnonymous]
-        [System.Web.Http.ActionName("PostProduct")]
-        public HttpResponseMessage PostProduct( [FromBody]Product product)
+        [System.Web.Http.ActionName("PutProduct")]
+        public HttpResponseMessage PutProduct( [FromBody]Product product)
         {
 
             if (ModelState.IsValid)
