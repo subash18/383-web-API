@@ -1,16 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace WebAPIPhase_2.Models.DTOs
+namespace MobileApplication
 {
-   public class ProductDTO
+    public class Product
     {
-        public string Url { get; set; }
-
-       public int ProductId { get; set; }
+        public int ProductId { get; set; }
 
         public string Name { get; set; }
 
@@ -21,5 +15,6 @@ namespace WebAPIPhase_2.Models.DTOs
         public decimal Price { get; set; }
 
         public int InventoryCount { get; set; }
+
     }
 }

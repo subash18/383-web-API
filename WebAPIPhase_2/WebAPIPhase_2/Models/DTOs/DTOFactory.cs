@@ -8,15 +8,15 @@ using System.Web.Http.Routing;
 
 namespace WebAPIPhase_2.Models.DTOs
 {
-  public  class DTOFactory
+    public class DTOFactory
     {
         private WebAPIPhase_2Context db = new WebAPIPhase_2Context();
 
-        private UrlHelper _urlHelper; 
-      //  private UrlHelper urlbuilder { get; set; }
+        private UrlHelper _urlHelper;
+        //  private UrlHelper urlbuilder { get; set; }
 
 
-    
+
         public DTOFactory(HttpRequestMessage request)
         {
             _urlHelper = new UrlHelper(request);
@@ -25,11 +25,12 @@ namespace WebAPIPhase_2.Models.DTOs
         public ProductDTO Create(Product product)
         {
 
-        ProductDTO productDTO = new ProductDTO()
+            ProductDTO productDTO = new ProductDTO()
             {
 
-                 Url = _urlHelper.Link("ProductRoute", new { id = product.ProductId }),
-               // Url = string.Format("http://localhost:58198/api/Products/{0}", product.ProductId),
+                Url = _urlHelper.Link("ProductRoute", new { id = product.ProductId }),
+                // Url = string.Format("http://localhost:58198/api/Products/{0}", product.ProductId),
+                ProductId = product.ProductId,
                 Name = product.Name,
                 CreatedDate = product.CreatedDate,
                 LastModifiedDate = product.LastModifiedDate,
