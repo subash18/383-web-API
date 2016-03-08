@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html ng-app="eventsApp">
+<head>
+    <title>Phase 2 SPA</title>
+	<meta charset="utf-8" />
+    <link href="Content/bootstrap-theme.css" rel="stylesheet" />
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="Content/Site.css" rel="stylesheet" />
+    <link href="Content/loading-bar.css" rel="stylesheet" />
+    <script src="Scripts/jquery-2.2.0.min.js"></script>
+    <script src="Scripts/angular.min.js"></script>
+    <script src="Scripts/angular-route.min.js"></script>
+    <script src="Scripts/angular-resource.min.js"></script>
+    <script src="Scripts/loading-bar.min.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/services/controller.js"></script>
+    <script src="app/services/product.js"></script>
+    <script src="app/services/shoppingCart.js"></script>
+    <script src="app/services/store.js"></script>
+</head>
+<body ng-cloak>
+    <div class="container">
+        <div class="row-fluid">
+            <div ng-controller="storeController">
+                <img src="Images/computerLogo.png" width="80" height="80" style="float: left" alt="Computer" />
+                <h1 class="well" style="text-align: center">
+                    CMPS 383 One Stop Computer Part Shop
+                </h1>
+                <div ng-view>
+
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+
+
+    
+
+
+</body>
+</html>

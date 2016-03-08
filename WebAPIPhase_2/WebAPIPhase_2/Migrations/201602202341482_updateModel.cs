@@ -12,9 +12,9 @@ namespace WebAPIPhase_2.Migrations
                 c => new
                     {
                         UserId = c.Int(nullable: false, identity: true),
-                        Email = c.String(nullable: false),
+                        Email = c.String(nullable: false, maxLength:200),
                         Password = c.String(nullable: false),
-                        ApiKey = c.String(),
+                        ApiKey = c.String(nullable: false),
                     })
                 .PrimaryKey(t => t.UserId);
             

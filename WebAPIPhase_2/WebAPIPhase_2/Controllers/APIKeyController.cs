@@ -6,7 +6,9 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Security.Cryptography;
+using System.Web.Helpers;
 using System.Web.Http;
+using System.Web.Security;
 using WebAPIPhase_2.Models;
 using WebAPIPhase_2.Services;
 
@@ -23,7 +25,16 @@ namespace WebAPIPhase_2.Controllers
         [AllowAnonymous]
         public HttpResponseMessage GetApiKey(string email, string password)
         {
+            
             var getUser = TheAPIRepository.getApiKey(email, password);
+            var user = db.Users.First(x => x.Email == email);
+            if (user != null)
+            {
+                if (Crypto.VerifyHashedPassword(user.Password, password))
+                {
+                    FormsAuthentication.SetAuthCookie(user.Email, true);
+                }
+            }
 
             if (getUser == null)
             {

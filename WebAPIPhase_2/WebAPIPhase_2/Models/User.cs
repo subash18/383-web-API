@@ -18,6 +18,7 @@ namespace WebAPIPhase_2.Models
         [Display(Name = "Email")]
         [EmailAddress]
         [Index(IsUnique = true)]
+        [MaxLength(200)]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 

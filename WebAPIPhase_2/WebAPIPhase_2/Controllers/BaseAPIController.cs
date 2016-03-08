@@ -22,6 +22,11 @@ namespace WebAPIPhase_2.Controllers
 
 
         public WebAPIPhase_2Context db = new WebAPIPhase_2Context();
+
+        public BaseAPIController()
+        {
+            _repo = new ProductRepository();
+        }
         public BaseAPIController(IAPIKeyRepository _repo1)
         {
             this._repo1 = _repo1;
