@@ -36,6 +36,8 @@ namespace WebAPIPhase_2.Services
             updatedProduct.InventoryCount = product.InventoryCount;
             updatedProduct.CreatedDate = product.CreatedDate;
             updatedProduct.LastModifiedDate = product.LastModifiedDate;
+            updatedProduct.CategoryId = product.CategoryId;
+            updatedProduct.ManufacturerId = product.ManufacturerId;
             db.Entry(updatedProduct).State = System.Data.Entity.EntityState.Modified;
             db.SaveChanges();
 

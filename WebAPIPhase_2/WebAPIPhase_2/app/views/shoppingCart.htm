@@ -1,0 +1,94 @@
+﻿<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span8">
+
+            <!-- items -->
+            <table class="table table-bordered" ng-init="updateBuy()">
+
+                <!-- header -->
+                <tr class="well">
+                    <td><b>Item</b></td>
+                    <td class="tdCenter"><b>Quantity</b></td>
+                    <td></td>
+                    <td class="tdRight"><b>Price</b></td>
+                </tr>
+
+                <!-- empty cart message -->
+                <tr ng-hide="cart.getTotalCount() > 0">
+                    <td class="tdCenter" colspan="4">
+                        Your cart is empty.
+                    </td>
+                </tr>
+
+                <!-- cart items -->
+                <tr ng-repeat="item in cart.items | orderBy:'name'">
+                    <td>{{item.name}}</td>
+                    <td class="tdCenter">
+                        <div>
+                            {{item.inventoryCount}}
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <button class="btn btn-success" type="button" style="float: right"
+                                    ng-disabled="item.inventoryCount > store.getProduct(item.productId).inventoryCount - 1"
+                                    ng-click="cart.addItem(item.productId, item.name, item.price, +1)">
+                                +
+                            </button>
+                            <button class="btn btn-inverse" type="button" style="float: right"
+                                    ng-disabled="item.inventoryCount < 1"
+                                    ng-click="cart.addItem(item.productId, item.name, item.price, -1)">
+                                -
+                            </button>
+                        </div>
+                    </td>
+                    <td class="tdRight">{{item.price * item.inventoryCount | currency}}</td>
+                </tr>
+
+                <!-- footer -->
+                <tr class="well">
+                    <td><b>Total</b></td>
+                    <td class="tdCenter"><b>{{cart.getTotalCount()}}</b></td>
+                    <td></td>
+                    <td class="tdRight"><b>{{cart.getTotalPrice() | currency}}</b></td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- buttons -->
+        <div class="span8" ng-hide="buy">
+            <div>
+                <b>Please enter your email address to continue with purchase:</b>
+                <label name="label">
+                    <input class="span3 text-center" type="email" name="input" ng-model="emailInfo.text" ng-pattern="emailPattern"> 
+                </label>
+            </div>
+            <div>
+                <button class="btn btn-block btn-primary"
+                        ng-show="emailInfo.text"
+                        ng-click="update(cart.items, emailInfo.text)"
+                        ng-disabled="cart.getTotalCount() < 1">
+                    <i class="icon-ok icon-white" /> Purchase
+                </button>
+            </div>
+        </div>
+        <br />
+        <br />
+        <p class="text-info" ng-hide="buy">
+            <button class="btn btn-block"
+                    onclick="window.location.href='default.htm'">
+                <i class="icon-chevron-left" /> back to store
+            </button>
+            <br />
+            <br />
+            <button class="btn btn-block btn-danger"
+                    ng-click="cart.clearItems()"
+                    ng-disabled="cart.getTotalCount() < 1">
+                <i class="icon-trash icon-white" /> clear cart
+            </button>
+        </p>
+        <div>
+            <h3 style="text-align:center">{{waitMessage}}</h3>
+        </div>
+    </div>
+</div>

@@ -25,9 +25,14 @@ namespace WebAPIPhase_2.Models.DTOs
         public ProductDTO Create(Product product)
         {
 
-        ProductDTO productDTO = new ProductDTO()
+            ProductDTO productDTO = new ProductDTO()
             {
 
+                ProductId = product.ProductId,
+                CategoryId = product.CategoryId,
+                Category = product.Category,
+                ManufacturerId = product.ManufacturerId,
+                Manufacturer = product.Manufacturer,
                  Url = _urlHelper.Link("ProductRoute", new { id = product.ProductId }),
                // Url = string.Format("http://localhost:58198/api/Products/{0}", product.ProductId),
                 Name = product.Name,
