@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,7 @@ namespace WebAPIPhase_2.Models
         [Required]
         [Display(Name = "Email")]
         [EmailAddress]
+        [Index(IsUnique = true)]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 

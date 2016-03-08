@@ -10,10 +10,7 @@ namespace WebAPIPhase_2.App_Start
 
     using Ninject;
     using Ninject.Web.Common;
-    using Services;
-    using Models;
-    using System.Web.Http;
-    using WebApiContrib.IoC.Ninject;
+
     public static class NinjectWebCommon 
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
@@ -48,10 +45,6 @@ namespace WebAPIPhase_2.App_Start
                 kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
                 kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
 
-                //sipport web api
-                GlobalConfiguration.Configuration.DependencyResolver =
-        new NinjectResolver(kernel);
-
                 RegisterServices(kernel);
                 return kernel;
             }
@@ -68,9 +61,6 @@ namespace WebAPIPhase_2.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            kernel.Bind<IProductRepository>().To<ProductRepository>();
-            kernel.Bind<IAPIKeyRepository>().To<APIKeyRepository>();
-            kernel.Bind<WebAPIPhase_2Context>().To<WebAPIPhase_2Context>();
         }        
     }
 }
