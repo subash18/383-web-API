@@ -14,6 +14,7 @@ namespace WebAPIPhase_2.Models
         [Key]
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int ProductId { get; set; }
+        [Index(IsUnique = true)]
         [MaxLength(100)]
         public string Name { get; set; }
 

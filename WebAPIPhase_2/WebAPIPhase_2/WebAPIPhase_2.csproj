@@ -273,6 +273,10 @@
     <Compile Include="Migrations\201603081551031_Name.Designer.cs">
       <DependentUpon>201603081551031_Name.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201603081917119_Changes.cs" />
+    <Compile Include="Migrations\201603081917119_Changes.Designer.cs">
+      <DependentUpon>201603081917119_Changes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApiKey.cs" />
     <Compile Include="Models\Category.cs" />
@@ -424,6 +428,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201603081551031_Name.resx">
       <DependentUpon>201603081551031_Name.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603081917119_Changes.resx">
+      <DependentUpon>201603081917119_Changes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
