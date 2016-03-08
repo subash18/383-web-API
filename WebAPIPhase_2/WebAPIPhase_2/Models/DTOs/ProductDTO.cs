@@ -8,11 +8,9 @@ namespace WebAPIPhase_2.Models.DTOs
 {
    public class ProductDTO
     {
-        public int ProductId { get; set; }
-
         public string Url { get; set; }
 
-       public int ProductId { get; set; }
+        public int ProductId { get; set; }
 
         public string Name { get; set; }
 
