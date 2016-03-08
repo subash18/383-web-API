@@ -20,7 +20,11 @@ namespace MobileApplication
            
         public ProductsPage(IEnumerable<Product> products )
         {
-            
+            var createProduct = new Button()
+            { WidthRequest = 50, HeightRequest = 80, BackgroundColor = Color.FromHex("77D065"), Text = "Create New Product", FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Button)) };
+            createProduct.Clicked += CreateProductOnClicked;
+            Padding = new Thickness(20, Device.OnPlatform(20, 20, 20), 20, 20);
+
             var header = new Label
             {
                 Text = "Product List View",
@@ -78,7 +82,8 @@ namespace MobileApplication
                 Children =
                 {
                     header,
-                    listView
+                    listView,
+                    createProduct
                 }
             };
         }
@@ -89,5 +94,10 @@ namespace MobileApplication
             
             await Navigation.PushAsync(new ItemPage(temp));
         }
-   }
+
+        async void CreateProductOnClicked(object sender, EventArgs eventArgs)
+        {
+            await Navigation.PushAsync(new ProductCreation());
+        }
+    }
 }
