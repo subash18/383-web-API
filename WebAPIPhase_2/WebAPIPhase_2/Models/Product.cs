@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Data;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -15,6 +16,7 @@ namespace WebAPIPhase_2.Models
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int ProductId { get; set; }
         [Index(IsUnique = true)]
+        [MaxLength(100)]
         public string Name { get; set; }
 
         public DateTime CreatedDate { get; set; }
