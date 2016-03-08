@@ -12,8 +12,6 @@ namespace WebAPIPhase_2.Models.DTOs
 
         public string Url { get; set; }
 
-       public int ProductId { get; set; }
-
         public string Name { get; set; }
 
         public DateTime CreatedDate { get; set; }

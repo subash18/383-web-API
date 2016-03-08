@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MobileApplication.Constants;
 using Newtonsoft.Json;
 using RestSharp.Portable;
 using RestSharp.Portable.Deserializers;
@@ -19,8 +20,6 @@ namespace MobileApplication
     {
         User user = new User();
         
-        private RestClient client = new RestClient("http://147.174.166.47:58198/");
-
         public LogInPage()
         {
            Title = "383 Managment App";
@@ -85,10 +84,13 @@ namespace MobileApplication
         {
             var email = user.Email;
             var password = user.Password;
-            var request = new RestRequest("api/Products", Method.GET);
-            var response = await client.Execute<IEnumerable<Product>>(request);
+            using (var client = new RestClient(Globals.baseUrl))
+            {
+                var request = new RestRequest("api/Products", Method.GET);
+                var response = await client.Execute<IEnumerable<Product>>(request);
 
-           await Navigation.PushAsync(new ProductsPage(response.Data));
+                await Navigation.PushAsync(new ProductsPage(response.Data));
+            }
         }    
     }
 }
