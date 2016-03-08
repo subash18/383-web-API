@@ -28,6 +28,7 @@ namespace WebAPIPhase_2.Models.DTOs
             ProductDTO productDTO = new ProductDTO()
             {
 
+                ProductId = product.ProductId,
                 CategoryId = product.CategoryId,
                 Category = product.Category,
                 ManufacturerId = product.ManufacturerId,
