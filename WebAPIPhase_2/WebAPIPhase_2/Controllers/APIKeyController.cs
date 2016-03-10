@@ -17,16 +17,13 @@ namespace WebAPIPhase_2.Controllers
     public class APIKeyController : BaseAPIController
     {
         private WebAPIPhase_2Context db = new WebAPIPhase_2Context();
-        public APIKeyController(IAPIKeyRepository repo) : base(repo)
-        {
-
-        }
+        private IAPIKeyRepository repo = new APIKeyRepository();
 
         [AllowAnonymous]
         public HttpResponseMessage GetApiKey(string email, string password)
         {
             
-            var getUser = TheAPIRepository.getApiKey(email, password);
+            var getUser = repo.getApiKey(email, password);
             var user = db.Users.First(x => x.Email == email);
             if (user != null)
             {

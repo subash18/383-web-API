@@ -16,7 +16,7 @@ namespace WebAPIPhase_2.Services
         private WebAPIPhase_2Context db = new WebAPIPhase_2Context();
 
 
-        public IQueryable<Product> GetAllProducts()
+        public IEnumerable<Product> GetAllProducts()
         {
             return db.Products;
         }

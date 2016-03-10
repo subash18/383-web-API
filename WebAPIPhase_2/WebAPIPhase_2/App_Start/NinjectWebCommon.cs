@@ -69,6 +69,11 @@ namespace WebAPIPhase_2.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Bind<IProductRepository>().To<ProductRepository>();
+            kernel.Bind<ICategoryRepository>().To<CategoryRepository>();
+            kernel.Bind<IManufacturerRepository>().To<MaufacturerRepository>();
+
+
+
             kernel.Bind<IAPIKeyRepository>().To<APIKeyRepository>();
             kernel.Bind<WebAPIPhase_2Context>().To<WebAPIPhase_2Context>();
         }        

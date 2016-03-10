@@ -19,29 +19,18 @@ namespace WebAPIPhase_2.Controllers
 {
     public class ProductsController : BaseAPIController
     {
-        public ProductsController() : base()
-        {
-            
-        }
-
-        public ProductsController(IProductRepository repo) : base(repo)
-        {
-
-        }
-        // private Product_repository _repo = new Product_repository();
-
+     
         private WebAPIPhase_2Context db = new WebAPIPhase_2Context();
+        private IProductRepository repo = new ProductRepository();
 
-        // GET: api/Products
-
-        // [RoleAuthentication("Admin")]
+    
         public HttpResponseMessage GetProducts()
         {
             //  if (IsAuthorized(Request, new List<Role> { Role.Admin }))
             //{
             List<ProductDTO> ProductList = new List<ProductDTO>();
 
-            foreach (var item in TheRepository.GetAllProducts())
+            foreach (var item in repo.GetAllProducts())
             {
                 ProductList.Add(TheDTOFactory.Create(item));
             }
@@ -59,7 +48,7 @@ namespace WebAPIPhase_2.Controllers
         {
 
             // find the product from the repo + database 
-            Product productFound = TheRepository.getProductById(id);
+            Product productFound = repo.getProductById(id);
 
             if (productFound == null)
             {
@@ -175,7 +164,7 @@ namespace WebAPIPhase_2.Controllers
 
             if (ModelState.IsValid)
             {
-                TheRepository.createProduct(product);
+                repo.createProduct(product);
 
                 HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, product);
                 response.Headers.Location = new Uri(Url.Link("DefaultApi", new { id = product.ProductId }));

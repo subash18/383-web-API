@@ -47,6 +47,31 @@ namespace WebAPIPhase_2.Models.DTOs
         }
 
 
+        public CategoryDTO Create(Category category) {
+
+            CategoryDTO categoryDTO = new CategoryDTO()
+            {
+                CategoryName = category.CategoryName,
+                Products = category.Products
+           
+            };
+
+        return categoryDTO;
+        }
+
+        public ManufacturerDTO Create(Manufacturer manufacturer)
+        {
+
+            ManufacturerDTO manufacturerDTO = new ManufacturerDTO()
+            {
+                ManfacturerName = manufacturer.ManfacturerName,
+                Products = manufacturer.Products
+
+            };
+
+            return manufacturerDTO;
+        }
+
         public ApiKeyDTO Create(string apikey, int id)
         {
 
