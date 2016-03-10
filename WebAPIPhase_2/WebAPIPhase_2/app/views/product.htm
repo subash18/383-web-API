@@ -11,7 +11,7 @@
 
                 <tr class="well">
                     <td class="tdRight" colspan="3" >
-                        <a href="default.htm#/cart" title="go to shopping cart" ng-disabled="cart.getTotalCount() < 1">
+                        <a href="shoppingCart.htm" title="go to shopping cart" ng-disabled="cart.getTotalCount() < 1">
                             <i class="icon-shopping-cart" />
                             <b>{{cart.getTotalCount()}}</b> items, Total: <b>{{cart.getTotalPrice() | currency}}</b>
                             <span ng-show="cart.getTotalCount(product.productId) > 0"><br />this item is in the cart</span>

@@ -44,7 +44,7 @@ namespace WebAPIPhase_2.Controllers
             //storeUser = db.Users.Where(s => s.Email == h1 && s.ApiKey == h2).FirstOrDefault();
         }
 
-        protected bool IsAdmin()
+       /* protected bool IsAdmin()
         {
             return Enum.GetName(typeof(Role), roleUser.Role) == ("Admin");
         }
@@ -52,7 +52,7 @@ namespace WebAPIPhase_2.Controllers
         protected bool IsCustomer()
         {
             return Enum.GetName(typeof(Role), roleUser.Role) == ("Customer");
-        }
+        }*/
         protected IAPIKeyRepository TheAPIRepository
         {
             get
@@ -86,7 +86,7 @@ namespace WebAPIPhase_2.Controllers
 
 
 
-        protected bool IsAuthorized(HttpRequestMessage request, List<Role> role)
+       /* protected bool IsAuthorized(HttpRequestMessage request, List<Role> role)
         {
 
             int userID = Convert.ToInt32(request.Headers.Where(m => m.Key == "xcmps383authenticationid").FirstOrDefault().Value.FirstOrDefault());
@@ -95,6 +95,6 @@ namespace WebAPIPhase_2.Controllers
 
             return (role.Contains(user.Role));
 
-        }
+        }*/
     }
 }

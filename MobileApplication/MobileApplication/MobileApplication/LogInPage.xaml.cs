@@ -18,40 +18,23 @@ namespace MobileApplication
     public partial class LogInPage : ContentPage
     {
         User user = new User();
-        
+
         public LogInPage()
         {
-           Title = "383 Managment App";
+            Title = "383 Managment App";
 
-            
 
-            Label header = new Label
-            {
-                Text = "383 Management App",
-                HorizontalTextAlignment = TextAlignment.Center,
-                VerticalTextAlignment = TextAlignment.Center,
-                FontSize = 20
-            };
-            
-            var emailEntry = new Entry {Placeholder = "Email"};
-            emailEntry.TextChanged += (sender, e) => { user.Email= e.NewTextValue; };
-            
-            Entry passwordEntry= new Entry {Placeholder = "Password", IsPassword = true};
+
+            var header = new Label { Text = "383 Management App", HorizontalTextAlignment = TextAlignment.Center, VerticalTextAlignment = TextAlignment.Center, FontSize = 20 };
+
+            var emailEntry = new Entry { Placeholder = "Email", Keyboard = Keyboard.Email, };
+            emailEntry.TextChanged += (sender, e) => { user.Email = e.NewTextValue; };
+
+            var passwordEntry = new Entry { Placeholder = "Password", IsPassword = true };
             passwordEntry.TextChanged += (sender, e) => { user.Password = e.NewTextValue; };
 
-            Button button = new Button
-            {
-                Text = "Login",
-                WidthRequest = 50,
-                HeightRequest = 80,
-                TextColor = Color.White,
-                BackgroundColor = Color.FromHex("77D065"),
-
-            };
-
+            var button = new Button { Text = "Login", WidthRequest = 50, HeightRequest = 80, TextColor = Color.White, BackgroundColor = Color.FromHex("77D065"), };
             button.Clicked += OnButtonClicked;
-            
-
 
             this.Content = new StackLayout
             {
@@ -68,12 +51,12 @@ namespace MobileApplication
                      new BoxView{HorizontalOptions = LayoutOptions.FillAndExpand},
                     new BoxView { VerticalOptions = LayoutOptions.FillAndExpand },
                     button
-                    
+
                 }
             };
 
-            
-            
+
+
         }
 
 
@@ -82,14 +65,16 @@ namespace MobileApplication
         async void OnButtonClicked(object sender, EventArgs e)
         {
             var email = user.Email;
-            var password = user.Password;
-            using (var client = new RestClient(Globals.Global.baseUrl))
-            {
-                var request = new RestRequest("api/Products", Method.GET);
-                var response = await client.Execute<IEnumerable<Product>>(request);
+            var password = user.Password;   
+            var connect = new Rest(Globals.Global.baseUrl, "api/ApiKey?email=" + email + "&password=" + password, Method.GET);
 
-                await Navigation.PushAsync(new ProductsPage(response.Data));
-            }
-        }    
+            var response = await connect.client.Execute(connect.request);
+            var deserializer = new JsonDeserializer();
+            user = deserializer.Deserialize<User>(response);
+            user.Email = email;
+            user.Password = password;
+
+            await Navigation.PushAsync(new ProductsPage(user));
+        }
     }
 }

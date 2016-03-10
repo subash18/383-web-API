@@ -29,7 +29,7 @@ namespace WebAPIPhase_2.Authentication
                     IList<Claim> claim = new List<Claim>
                     {
                         new Claim (ClaimTypes.Name, user.Email),
-                        new Claim (ClaimTypes.Role, user.Role.ToString())
+                        
                     };
                     var identity = new ClaimsIdentity(claim, "APIKey");
                     var principal = new ClaimsPrincipal(identity);

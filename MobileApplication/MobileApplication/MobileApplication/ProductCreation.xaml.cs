@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
 using RestSharp.Portable.HttpClient;
@@ -10,46 +12,46 @@ namespace MobileApplication
 {
     public partial class ProductCreation : ContentPage
     {
+        private Product product = new Product();
 
         public ProductCreation()
         {
-            var product = new Product();
-            var header = new Label() { Text = "Add a Product", FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label)) };
-            var tableView = new TableView
+            var header = new Label()
             {
-                Intent = TableIntent.Form,
-
-                Root = new TableRoot
-                {
-                    new TableSection
-                    {
-                        new EntryCell() {Label = "Product Name", Placeholder = "your item name here"},
-                        new EntryCell() {Label = "Inventory Count: ", Placeholder = "5" },
-                        new EntryCell() {Label = "Price: $", Placeholder = "5.00"}
-                    }
-                }
+                Text = "Create A New Product",
+                FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label)),
+                HorizontalOptions = LayoutOptions.Center
             };
 
-            var add = new Button() { Text = "Add Product", WidthRequest = 50, HeightRequest = 80, FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Button)), BackgroundColor = Color.FromHex("77D065") };
-
-            add.Clicked += AddOnClicked;
-
-            this.Content = new StackLayout()
+            var nameCell = new EntryCell
             {
-                Spacing = 10,
-                HorizontalOptions = LayoutOptions.CenterAndExpand,
-                Children =
-                {
-                   header,
-                   tableView,
-                   add
-                }
+                Label = "Product Name",
+                Placeholder = "Name",
+                Text = product.Name,
+                BindingContext = product.Name
             };
+            nameCell.SetBinding(EntryCell.TextProperty, "Name");
+            nameCell.Completed += NameCellOnCompleted;
+
+            var table = new TableView();
+            table.Intent = TableIntent.Form;
+            var layout = new StackLayout() {Orientation = StackOrientation.Horizontal, HorizontalOptions = LayoutOptions.Center};
+            layout.Children.Add(header);
+            table.Root = new TableRoot()
+            {
+                new TableSection("I'm Here")
+                {
+                    new ViewCell() {View = layout},
+                    nameCell
+                 }
+            };
+            Content = table;
         }
 
-        async void AddOnClicked(object sender, EventArgs eventArgs)
+        private void NameCellOnCompleted(object sender, EventArgs eventArgs)
         {
-            throw new NotImplementedException();
+            var x = product.Name;
+            var y = 1;
         }
     }
 }

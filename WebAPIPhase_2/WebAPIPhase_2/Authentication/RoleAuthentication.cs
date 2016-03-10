@@ -35,7 +35,7 @@ namespace WebAPIPhase_2.Authentication
     }
 }
 
-public override void OnAuthorization(HttpActionContext actionContext)
+/*public override void OnAuthorization(HttpActionContext actionContext)
 {
     Controller = (BaseAPIController)actionContext.ControllerContext.Controller;
     user = Controller.roleUser;
@@ -60,6 +60,6 @@ public override void OnAuthorization(HttpActionContext actionContext)
     actionContext.Response = actionContext.Request.CreateResponse(HttpStatusCode.Unauthorized,
         "Higher Authorization Level Required!");
     return;
-}
+}*/
     }
 }
