@@ -7,17 +7,15 @@ using System.Threading.Tasks;
 using RestSharp.Portable;
 using RestSharp.Portable.HttpClient;
 
-namespace MobileApplication
+namespace MobileApplication.Services
 {
     public class Rest {
 
-        public IRestClient client { get; set; }
         public IRestRequest request { get; set; }
 
         
-        public Rest(string baseUrl, string apiUrl, Method httpVerb)
+        public Rest(string apiUrl, Method httpVerb)
         {
-            this.client = new RestClient(baseUrl);
             this.request = new RestRequest(apiUrl, httpVerb);
         }
 

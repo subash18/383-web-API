@@ -1,33 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.ComTypes;
-using System.Text;
 using System.Threading.Tasks;
-using MobileApplication;
-using Newtonsoft.Json;
+using MobileApplication.Models;
+using MobileApplication.Services;
 using RestSharp.Portable;
-using RestSharp.Portable.Deserializers;
-using RestSharp.Portable.HttpClient;
-using RestSharp.Portable.Serializers;
 using Xamarin.Forms;
-using JsonSerializer = Newtonsoft.Json.JsonSerializer;
 
-namespace MobileApplication
+
+namespace MobileApplication.Pages
 {
     public partial class ProductsPage : ContentPage
         {
-        //IRestClient client = new RestClient(Globals.Global.baseUrl);
-       // IRestRequest request = new RestRequest("api/Products", Method.GET);
-        IEnumerable<Product> products = new List<Product>();
+        private IEnumerable<Product> products = new List<Product>();
         private ListView listView;
         
 
         async Task<ICollection<Product>>load()
         {
-            var request = new Rest(Globals.Global.baseUrl, "api/Products", Method.GET);
-            var response =  await request.client.Execute<ICollection<Product>>(request.request);
+            var request = new Rest("api/Products", Method.GET);
+            var response =  await SingletonClient.GetClient().Execute<ICollection<Product>>(request.request);
             return response.Data;
 
 

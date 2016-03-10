@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices.ComTypes;
-using System.Text;
-using System.Threading.Tasks;
+using MobileApplication.Models;
 using RestSharp.Portable.HttpClient;
 using Xamarin.Forms;
 
-namespace MobileApplication
+namespace MobileApplication.Pages
 {
     public partial class ProductCreation : ContentPage
     {

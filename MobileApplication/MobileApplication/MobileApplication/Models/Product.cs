@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MobileApplication
+namespace MobileApplication.Models
 {
     public class Product
     {

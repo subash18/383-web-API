@@ -1,19 +1,12 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics.Contracts;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
+using MobileApplication.Models;
+using MobileApplication.Services;
 using RestSharp.Portable;
 using RestSharp.Portable.Deserializers;
-using RestSharp.Portable.HttpClient;
 using Xamarin.Forms;
 
 
-namespace MobileApplication
+namespace MobileApplication.Pages
 {
     public partial class LogInPage : ContentPage
     {
@@ -65,10 +58,10 @@ namespace MobileApplication
         async void OnButtonClicked(object sender, EventArgs e)
         {
             var email = user.Email;
-            var password = user.Password;   
-            var connect = new Rest(Globals.Global.baseUrl, "api/ApiKey?email=" + email + "&password=" + password, Method.GET);
-
-            var response = await connect.client.Execute(connect.request);
+            var password = user.Password;
+            
+            var connect = new Rest("api/ApiKey?email=" + email + "&password=" + password, Method.GET);
+            var response = await SingletonClient.GetClient().Execute(connect.request);
             var deserializer = new JsonDeserializer();
             user = deserializer.Deserialize<User>(response);
             user.Email = email;

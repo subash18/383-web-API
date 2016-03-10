@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+using MobileApplication.Models;
 using Xamarin.Forms;
 
-namespace MobileApplication
+namespace MobileApplication.Pages
 {
     public partial class ItemPage : ContentPage
     {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MobileApplication.Pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,7 +13,7 @@ namespace MobileApplication
         public App()
         {
             // The root page of your application
-            MainPage = new NavigationPage(new LogInPage());
+            MainPage = new NavigationPage(new Pages.LogInPage());
         }
 
         protected override void OnStart()
