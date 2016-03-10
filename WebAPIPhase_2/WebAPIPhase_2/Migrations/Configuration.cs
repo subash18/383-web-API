@@ -24,7 +24,7 @@ namespace WebAPIPhase_2.Migrations
         }
         protected override void Seed(WebAPIPhase_2.Models.WebAPIPhase_2Context context)
         {
-            context.Users.AddOrUpdate(x => x.UserId, new User {ApiKey = GetApiKey(), Email = "sa@383.com", Password = "password", UserId = 1});
+            context.Users.AddOrUpdate(x => x.UserId, new User { ApiKey = GetApiKey(), Email = "sa@383.com", Password = "password", UserId = 1 });
 
             context.Products.AddOrUpdate(x => x.ProductId, new Product { Name = "Nvidia Titan X", InventoryCount = 5, Price = 500, ProductId = 1, CreatedDate = DateTime.Today, LastModifiedDate = DateTime.Today, CategoryId = 1, ManufacturerId = 1 });
             context.Products.AddOrUpdate(x => x.ProductId, new Product { Name = "AMD 5GHz 8-Core Processor", InventoryCount = 5, Price = 250, ProductId = 2, CreatedDate = DateTime.Today, LastModifiedDate = DateTime.Today, CategoryId = 2, ManufacturerId = 2 });
@@ -37,7 +37,7 @@ namespace WebAPIPhase_2.Migrations
 
             context.Sales.AddOrUpdate(x => x.SaleId, new Sale { SaleId = 1, SaleDate = DateTime.Today, TotalAmount = 750, Email = "test@test.com" });
 
-            context.ProductPurchased.AddOrUpdate(x => x.ProductPurchasedId, new ProductPurchased{ ProductId = 1, Quantity = 1, SaleId = 1 });
+            context.ProductPurchased.AddOrUpdate(x => x.ProductPurchasedId, new ProductPurchased { ProductId = 1, Quantity = 1, SaleId = 1 });
             context.ProductPurchased.AddOrUpdate(x => x.ProductPurchasedId, new ProductPurchased { ProductId = 2, Quantity = 1, SaleId = 1 });
         }
     }

@@ -245,41 +245,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201602200307035_Initial.cs" />
-    <Compile Include="Migrations\201602200307035_Initial.Designer.cs">
-      <DependentUpon>201602200307035_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201602202341482_updateModel.cs" />
-    <Compile Include="Migrations\201602202341482_updateModel.Designer.cs">
-      <DependentUpon>201602202341482_updateModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201602212307279_roleadded.cs" />
-    <Compile Include="Migrations\201602212307279_roleadded.Designer.cs">
-      <DependentUpon>201602212307279_roleadded.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201602220241459_random.cs" />
-    <Compile Include="Migrations\201602220241459_random.Designer.cs">
-      <DependentUpon>201602220241459_random.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201603051305134_AllUpdate.cs" />
-    <Compile Include="Migrations\201603051305134_AllUpdate.Designer.cs">
-      <DependentUpon>201603051305134_AllUpdate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201603081540501_test.cs" />
-    <Compile Include="Migrations\201603081540501_test.Designer.cs">
-      <DependentUpon>201603081540501_test.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201603081551031_Name.cs" />
-    <Compile Include="Migrations\201603081551031_Name.Designer.cs">
-      <DependentUpon>201603081551031_Name.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201603081917119_Changes.cs" />
-    <Compile Include="Migrations\201603081917119_Changes.Designer.cs">
-      <DependentUpon>201603081917119_Changes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201603092312371_api.cs" />
-    <Compile Include="Migrations\201603092312371_api.Designer.cs">
-      <DependentUpon>201603092312371_api.cs</DependentUpon>
+    <Compile Include="Migrations\201603100409030_Initial.cs" />
+    <Compile Include="Migrations\201603100409030_Initial.Designer.cs">
+      <DependentUpon>201603100409030_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApiKey.cs" />
@@ -412,41 +380,17 @@
     <Content Include="Scripts\jquery-2.2.0.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201602200307035_Initial.resx">
-      <DependentUpon>201602200307035_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201602202341482_updateModel.resx">
-      <DependentUpon>201602202341482_updateModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201602212307279_roleadded.resx">
-      <DependentUpon>201602212307279_roleadded.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201602220241459_random.resx">
-      <DependentUpon>201602220241459_random.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201603051305134_AllUpdate.resx">
-      <DependentUpon>201603051305134_AllUpdate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201603081540501_test.resx">
-      <DependentUpon>201603081540501_test.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201603081551031_Name.resx">
-      <DependentUpon>201603081551031_Name.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201603081917119_Changes.resx">
-      <DependentUpon>201603081917119_Changes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201603092312371_api.resx">
-      <DependentUpon>201603092312371_api.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201603100409030_Initial.resx">
+      <DependentUpon>201603100409030_Initial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

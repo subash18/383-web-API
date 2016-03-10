@@ -37,19 +37,19 @@
     </tr>
     <tr  ng-repeat="product in store.products | filter:search "  >
         <td>
-            <a href="#/products/{{product.productId}}"><b>{{product.name}}</b></a><br />
+            <a href="#/products/{{product.productId}}"><b>{{product.Name}}</b></a><br />
         </td>
         <td>
             Qty: {{product.inventoryCount - cart.getTotalCount(product.productId)}}
         </td>
         <td class="tdRight">
-            {{product.price | currency}}
+            {{product.Price | currency}}
         </td>
         <td>
-            {{product.category.categoryName}}
+            {{product.Category.CategoryName}}
         </td>
         <td>
-            {{product.manufacturer.manfacturerName}}
+            {{product.Manufacturer.ManfacturerName}}
         </td>
         <td class="tdCenter">
             <button
