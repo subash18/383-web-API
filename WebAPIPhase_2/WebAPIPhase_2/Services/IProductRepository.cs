@@ -10,7 +10,7 @@ namespace WebAPIPhase_2.Services
   public  interface IProductRepository
     {
 
-        IQueryable<Product> GetAllProducts();
+        IEnumerable<Product> GetAllProducts();
 
         Product getProductById(int id);
         void putProduct(int id, Product product);

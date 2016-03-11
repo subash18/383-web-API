@@ -29,6 +29,7 @@ namespace WebAPIPhase_2.Models
         [Display(Name = "Password")]
         public string Password { get; set; }
 
+        public string Role { get; set; }
         public string ApiKey { get; set; }
 
     }

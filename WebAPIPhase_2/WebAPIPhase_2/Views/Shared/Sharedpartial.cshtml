@@ -8,7 +8,7 @@
 
 
 
-        <li class="pull-right">@Html.ActionLink("Sign Out", "Logout", "User") </li>
+        <li class="pull-right">@Html.ActionLink("Sign Out", "Logout", "Users") </li>
         <li class="pull-right">@Html.ActionLink(HttpContext.Current.User.Identity.GetUserName(), "Home")</li>
 
     }
@@ -16,8 +16,8 @@
 else
 {
 
-    <li class="pull-right">@Html.ActionLink("Sign Up", "Create", "User")</li>
-    <li class="pull-right">@Html.ActionLink("Sign In", "SignIn", "User")</li>
+    <li class="pull-right">@Html.ActionLink("Sign Up", "Create", "Users")</li>
+    <li class="pull-right">@Html.ActionLink("Sign In", "SignIn", "Users")</li>
 
 }
 

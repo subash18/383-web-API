@@ -17,6 +17,7 @@ namespace WebAPIPhase_2.Models
     
         public WebAPIPhase_2Context() : base("name=WebAPIPhase_2Context")
         {
+            
         }
 
         public System.Data.Entity.DbSet<WebAPIPhase_2.Models.Product> Products { get; set; }
