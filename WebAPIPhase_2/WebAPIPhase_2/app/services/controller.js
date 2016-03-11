@@ -10,8 +10,8 @@ function storeController($scope, $routeParams, DataService, $http) {
     $scope.emailPattern = /^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/;
     $scope.buy = true;
 
-    if ($routeParams.productId != null) {
-        $scope.product = $scope.store.getProduct($routeParams.productId);
+    if ($routeParams.ProductId != null) {
+        $scope.product = $scope.store.getProduct($routeParams.ProductId);
     }
     $scope.updateBuy = function () {
         $scope.buy = false;

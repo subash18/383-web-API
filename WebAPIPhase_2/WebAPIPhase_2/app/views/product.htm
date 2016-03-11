@@ -1,5 +1,5 @@
 ﻿<p class="text-info">
-    <h2>{{product.name}} </h2> <br />
+    <h2>{{product.Name}} </h2> <br />
 </p>
 
 <div class="container-fluid">
@@ -14,7 +14,7 @@
                         <a href="shoppingCart.htm" title="go to shopping cart" ng-disabled="cart.getTotalCount() < 1">
                             <i class="icon-shopping-cart" />
                             <b>{{cart.getTotalCount()}}</b> items, Total: <b>{{cart.getTotalPrice() | currency}}</b>
-                            <span ng-show="cart.getTotalCount(product.productId) > 0"><br />this item is in the cart</span>
+                            <span ng-show="cart.getTotalCount(product.ProductId) > 0"><br />this item is in the cart</span>
                         </a>
                     </td>
                 </tr>
@@ -32,14 +32,14 @@
         <div class="span4">
             <button 
                 class="btn btn-block btn-success" 
-                ng-click="cart.addItem(product.productId, product.name, product.price, 1)"
-                ng-disabled="product.inventoryCount - cart.getTotalCount(product.productId) < 1" >
+                ng-click="cart.addItem(product.ProductId, product.Name, product.Price, 1)"
+                ng-disabled="product.InventoryCount - cart.getTotalCount(product.ProductId) < 1" >
                 <i class="icon-shopping-cart icon-white" /> add to cart
             </button>
             <button 
                 class="btn btn-block btn-danger" 
-                ng-click="cart.addItem(product.productId, product.name, product.price, -1)"
-                ng-disabled="cart.getTotalCount(product.productId) < 1">
+                ng-click="cart.addItem(product.ProductId, product.Name, product.Price, -1)"
+                ng-disabled="cart.getTotalCount(product.ProductId) < 1">
                 <i class="icon-trash icon-white" /> remove from cart
             </button>
             <button 

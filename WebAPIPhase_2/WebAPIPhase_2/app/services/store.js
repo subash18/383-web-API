@@ -12,15 +12,15 @@ function store() {
 
     //}
 }
-store.prototype.getProduct = function (productId) {
+store.prototype.getProduct = function (ProductId) {
     for (var i = 0; i < this.products.length; i++) {
-        if (this.products[i].productId == productId)
+        if (this.products[i].ProductId == ProductId)
             return this.products[i];
     }
     return null;
 }
-store.prototype.updateQuantity = function (productId) {
-    var prod = store.prototype.getProduct(productId);
+store.prototype.updateQuantity = function (ProductId) {
+    var prod = store.prototype.getProduct(ProductId);
 }
 
 

@@ -11,7 +11,7 @@ eventsApp.config(function($routeProvider) {
         })
 
         // route for the about page
-        .when('/products/:productId', {
+        .when('/products/:ProductId', {
             templateUrl : 'app/views/product.htm',
             controller  : 'storeController'
         })
