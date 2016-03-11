@@ -1,7 +1,7 @@
 ﻿@model WebAPIPhase_2.Models.User
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "SignIn";
 }
 
 <h2>Create</h2>
@@ -44,7 +44,7 @@
     @Html.ActionLink("Back to List", "Index")
 </div>
 
-@section Scripts {
+<script>
     $('form').submit(function(){
 
         $.ajax({
@@ -61,4 +61,5 @@
             }
         })
     });
-}
+
+</script>

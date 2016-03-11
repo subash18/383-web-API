@@ -85,7 +85,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -246,6 +246,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManufacturersController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\Users1Controller.cs" />
     <Compile Include="Controllers\UsersAPIController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
@@ -254,6 +255,10 @@
     <Compile Include="Migrations\201603100409030_Initial.cs" />
     <Compile Include="Migrations\201603100409030_Initial.Designer.cs">
       <DependentUpon>201603100409030_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603110220086_roleadded.cs" />
+    <Compile Include="Migrations\201603110220086_roleadded.Designer.cs">
+      <DependentUpon>201603110220086_roleadded.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApiKey.cs" />
@@ -390,6 +395,11 @@
     <Content Include="Views\Shared\Sharedpartial.cshtml" />
     <Content Include="Views\Product\Product.cshtml" />
     <Content Include="Scripts\jquery-2.2.0.min.map" />
+    <Content Include="Views\Users1\Create.cshtml" />
+    <Content Include="Views\Users1\Delete.cshtml" />
+    <Content Include="Views\Users1\Details.cshtml" />
+    <Content Include="Views\Users1\Edit.cshtml" />
+    <Content Include="Views\Users1\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -402,6 +412,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201603100409030_Initial.resx">
       <DependentUpon>201603100409030_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603110220086_roleadded.resx">
+      <DependentUpon>201603110220086_roleadded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
