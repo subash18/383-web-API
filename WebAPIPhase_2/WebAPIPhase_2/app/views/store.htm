@@ -1,8 +1,21 @@
-﻿<p>
+﻿<p ng-init="httpgetCategory()">
     <h3 style="text-align:center">{{waitMessage}}</h3>
 </p><br />
+<p ng-init="httpgetManufacturers()">
+
+</p>
 <p  ng-init="httpget()">
     Search: <input ng-model="search">
+    <span style="padding-left: 10px">Sort by Category:</span>
+    <select ng-model="dropCategory">
+        <option value="">All</option>
+        <option ng-repeat="cat in Categories">{{cat.CategoryName}}</option>
+    </select>
+    <span style="padding-left: 10px">Sort by Manufacturer:</span>
+    <select ng-model="dropManufacturer">
+        <option value="">All</option>
+        <option ng-repeat="man in Manufacturers">{{man.ManfacturerName}}</option>
+    </select>
 </p>
 
 <table class="table table-bordered">
@@ -35,7 +48,7 @@
             <b>Purchase</b>
         </td>
     </tr>
-    <tr  ng-repeat="product in store.products | filter:search "  >
+    <tr  ng-repeat="product in store.products | filter:search | filter:dropCategory | filter:dropManufacturer"  >
         <td>
             <a href="#/products/{{product.ProductId}}"><b>{{product.Name}}</b></a><br />
         </td>

@@ -289,7 +289,6 @@
   <ItemGroup>
     <Content Include="app\app.js" />
     <Content Include="app\services\controller.js" />
-    <Content Include="app\services\product.js" />
     <Content Include="app\services\shoppingCart.js" />
     <Content Include="app\services\store.js" />
     <Content Include="app\views\product.htm" />
@@ -348,7 +347,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Scripts\angular.min.js.map" />
-    <Content Include="app\services\JSON.json" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />

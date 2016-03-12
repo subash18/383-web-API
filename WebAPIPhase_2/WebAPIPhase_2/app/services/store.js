@@ -19,8 +19,5 @@ store.prototype.getProduct = function (ProductId) {
     }
     return null;
 }
-store.prototype.updateQuantity = function (ProductId) {
-    var prod = store.prototype.getProduct(ProductId);
-}
 
 
