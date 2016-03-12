@@ -30,23 +30,32 @@
 
         <!-- buttons -->
         <div class="span4">
-            <button 
-                class="btn btn-block btn-success" 
-                ng-click="cart.addItem(product.ProductId, product.Name, product.Price, 1)"
-                ng-disabled="product.InventoryCount - cart.getTotalCount(product.ProductId) < 1" >
-                <i class="icon-shopping-cart icon-white" /> add to cart
-            </button>
-            <button 
-                class="btn btn-block btn-danger" 
-                ng-click="cart.addItem(product.ProductId, product.Name, product.Price, -1)"
-                ng-disabled="cart.getTotalCount(product.ProductId) < 1">
-                <i class="icon-trash icon-white" /> remove from cart
-            </button>
-            <button 
-                class="btn btn-block" 
-                onclick="window.location.href=''">
-                <i class="icon-chevron-left" /> back to store
-            </button>
+            <table class="table table-hover">
+                <tr>
+                    <td>
+                        <button class="btn btn-block btn-success"
+                                ng-click="cart.addItem(product.ProductId, product.Name, product.Price, 1)"
+                                ng-disabled="product.InventoryCount - cart.getTotalCount(product.ProductId) < 1">
+                            <i class="icon-shopping-cart icon-white" /> add to cart
+                        </button>
+                    </td>
+                    <td></td>
+                    <td>
+                        <button class="btn btn-block btn-danger"
+                                ng-click="cart.addItem(product.ProductId, product.Name, product.Price, -1)"
+                                ng-disabled="cart.getTotalCount(product.ProductId) < 1">
+                            <i class="icon-trash icon-white" /> remove from cart
+                        </button>
+                    </td>
+                    <td></td>
+                    <td>
+                        <button class="btn btn-block"
+                                onclick="window.location.href=''">
+                            <i class="icon-chevron-left" /> back to store
+                        </button>
+                    </td>
+                </tr>
+            </table>
         </div>
     </div>
 </div>

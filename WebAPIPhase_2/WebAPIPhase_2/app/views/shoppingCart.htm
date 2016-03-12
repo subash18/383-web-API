@@ -60,29 +60,34 @@
                 </label>
             </div>
             <div>
-                <button class="btn btn-block btn-primary"
-                        ng-show="emailInfo.text"
-                        ng-click="update(cart.items, emailInfo.text)"
-                        ng-disabled="cart.getTotalCount() < 1">
-                    <i class="icon-ok icon-white" /> Purchase
-                </button>
+                <table class="table table-hover">
+                    <tr>
+                        <td>
+                            <button class="btn btn-block btn-primary"
+                                    ng-show="emailInfo.text"
+                                    ng-click="update(cart.items, emailInfo.text)"
+                                    ng-disabled="cart.getTotalCount() < 1">
+                                <i class="icon-ok icon-white" /> Purchase
+                            </button>
+                        </td>
+                        <td></td>
+                        <td ng-hide="buy">
+                            <button class="btn btn-block"
+                                    onclick="window.location.href='default.htm'">
+                                <i class="icon-chevron-left" /> back to store
+                            </button>
+                        </td>
+                        <td></td>
+                        <td ng-hide="buy">
+                            <button class="btn btn-block btn-danger"
+                                    ng-click="cart.clearItems()"
+                                    ng-disabled="cart.getTotalCount() < 1">
+                                <i class="icon-trash icon-white" /> clear cart
+                            </button>
+                        </td>
+                    </tr>
+                </table>
             </div>
-        </div>
-        <br />
-        <br />
-        <p class="text-info" ng-hide="buy">
-            <button class="btn btn-block"
-                    onclick="window.location.href='default.htm'">
-                <i class="icon-chevron-left" /> back to store
-            </button>
-            <br />
-            <br />
-            <button class="btn btn-block btn-danger"
-                    ng-click="cart.clearItems()"
-                    ng-disabled="cart.getTotalCount() < 1">
-                <i class="icon-trash icon-white" /> clear cart
-            </button>
-        </p>
         <div>
             <h3 style="text-align:center">{{waitMessage}}</h3>
         </div>
