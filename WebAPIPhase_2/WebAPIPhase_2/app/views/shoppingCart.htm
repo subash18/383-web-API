@@ -33,7 +33,7 @@
                             <button class="btn btn-success" type="button" style="float: right"
                                     ng-disabled="item.InventoryCount > store.getProduct(item.ProductId).InventoryCount - 1"
                                     ng-click="cart.addItem(item.ProductId, item.Name, item.Price, +1)">+</button>
-                            <button class="btn btn-inverse" type="button" style="float: right"
+                            <button class="btn btn-danger" type="button" style="float: right"
                                     ng-disabled="item.InventoryCount < 1"
                                     ng-click="cart.addItem(item.ProductId, item.Name, item.Price, -1)">-</button>
                         </div>
@@ -72,9 +72,9 @@
                         </td>
                         <td></td>
                         <td ng-hide="buy">
-                            <button class="btn btn-block"
+                            <button class="btn btn-block btn-primary"
                                     onclick="window.location.href='default.htm'">
-                                <i class="icon-chevron-left" /> back to store
+                                <i class="icon-ok icon-white" /> back to store
                             </button>
                         </td>
                         <td></td>
