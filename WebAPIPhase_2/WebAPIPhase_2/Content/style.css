@@ -148,9 +148,9 @@ h6 {
         background: url('../Images/keyboard-computer-hd-wallpaper-1920x1080-21861.jpg') no-repeat left top;
         height: 177px;
         padding: 90px 95px 0 95px;
-        -webkit-border-radius: 5px 5px 0px 0px;
-        -moz-border-radius: 5px 5px 0px 0px;
-        border-radius: 5px 5px 0px 0px;
+        -webkit-border-radius: 5px 5px 0 0;
+        -moz-border-radius: 5px 5px 0 0;
+        border-radius: 5px 5px 0 0;
     }
 
 #header h1{

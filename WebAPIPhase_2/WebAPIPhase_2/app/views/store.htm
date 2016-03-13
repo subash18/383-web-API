@@ -1,18 +1,18 @@
 ﻿<p ng-init="httpgetCategory()">
-    <h3 style="text-align:center">{{waitMessage}}</h3>
+    <h1 style="text-align:center">{{waitMessage}}</h1>
 </p><br />
 <p ng-init="httpgetManufacturers()">
 
 </p>
 <p  ng-init="httpget()">
-    Search: <input ng-model="search">
+    Search: <input ng-model="search" style="font-size:medium">
     <span style="padding-left: 10px">Sort by Category:</span>
-    <select ng-model="dropCategory">
+    <select ng-model="dropCategory" style="font-size:medium">
         <option value="">All</option>
         <option ng-repeat="cat in Categories">{{cat.CategoryName}}</option>
     </select>
     <span style="padding-left: 10px">Sort by Manufacturer:</span>
-    <select ng-model="dropManufacturer">
+    <select ng-model="dropManufacturer" style="font-size:medium">
         <option value="">All</option>
         <option ng-repeat="man in Manufacturers">{{man.ManfacturerName}}</option>
     </select>
@@ -23,7 +23,7 @@
         <td class="tdRight" colspan="6" ng-hide="buy">
             <a href="default.htm#/cart" title="go to shopping cart" ng-disabled="cart.getTotalCount() < 1">
                 <i class="icon-shopping-cart" />
-                <b>{{cart.getTotalCount()}}</b> items.  Total: <b>{{cart.getTotalPrice() | currency}}</b>
+                <b>{{cart.getTotalCount()}}</b> items in cart.  Total: <b>{{cart.getTotalPrice() | currency}}</b>
             </a>
             <a style="float: right" href="default.htm#/cart" title="shopping cart">Check Out</a>
         </td>

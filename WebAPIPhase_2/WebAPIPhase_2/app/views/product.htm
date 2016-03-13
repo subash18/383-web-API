@@ -13,7 +13,7 @@
                     <td class="tdRight" colspan="3" >
                         <a href="shoppingCart.htm" title="go to shopping cart" ng-disabled="cart.getTotalCount() < 1">
                             <i class="icon-shopping-cart" />
-                            <b>{{cart.getTotalCount()}}</b> items, Total: <b>{{cart.getTotalPrice() | currency}}</b>
+                            <b>{{cart.getTotalCount()}}</b> items in cart, Total: <b>{{cart.getTotalPrice() | currency}}</b>
                             <span ng-show="cart.getTotalCount(product.ProductId) > 0"><br />this item is in the cart</span>
                         </a>
                     </td>
