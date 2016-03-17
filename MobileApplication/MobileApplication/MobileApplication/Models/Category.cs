@@ -11,5 +11,7 @@ namespace MobileApplication.Models
         public int CategoryId { get; set; }
         public string CategoryName { get; set; }
         public virtual IEnumerable<Product> Products { get; set; }
+		public DateTime CreatedDate { get; set; }
+		public DateTime LastModifiedDate { get; set; }
     }
 }
