@@ -52,12 +52,9 @@ namespace MobileApplication.Pages
 
 		async void CreateButtonOnClicked(object sender, EventArgs eventArgs)
 		{
-			category.CreatedDate = DateTime.UtcNow;
-			category.LastModifiedDate = DateTime.UtcNow;
-			var request = new Rest(Globals.Global.apiCategory, Method.PUT);
-
-			var response = await SingletonClient.GetClient().Execute(request.request.AddBody(category));
-			if (response.IsSuccess)
+			var request = new Rest(Globals.Global.apiCategories, Method.PUT);
+			var response = SingletonClient.GetClient().Execute(request);
+			if (response.Result.IsSuccess)
 			{
 				await Navigation.PopAsync();
 			}

@@ -68,7 +68,7 @@ namespace MobileApplication
 
 		async void SaveButtonOnClicked(object sender, EventArgs eventArgs)
 		{
-			var request = new Rest(Globals.Global.apiCategory, Method.PUT);
+			var request = new Rest(Globals.Global.apiCategories, Method.PUT);
 
 			var response = await SingletonClient.GetClient().Execute(request.request.AddBody(_category));
 			if (response.IsSuccess)

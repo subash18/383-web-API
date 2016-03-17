@@ -17,7 +17,7 @@ namespace MobileApplication.Pages
 
 		async Task<ICollection<Category>> load()
 		{
-			var request = new Rest(Globals.Global.apiCategory, Method.GET);
+			var request = new Rest(Globals.Global.apiCategories, Method.GET);
 			var response = await SingletonClient.GetClient().Execute<ICollection<Category>>(request.request);
 			return response.Data;
 
